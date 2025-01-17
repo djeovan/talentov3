@@ -17,15 +17,26 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
+            //informações técnicas sobre o usuário
+            $table->String('nome_imagem', length: 100) ->nullable();
+            $table->String('path', length: 100) ->nullable();
+            $table->date('data') ->nullable();
+            $table->String('formacao', length: 100) ->nullable();
+            $table->String('nome_formacao', length: 100) ->nullable();
+            $table->String('especializacoes', length: 100) ->nullable();
+            $table->String('cursos', length: 100) ->nullable();
+            $table->String('formacao_academica', length: 100) ->nullable();
+            $table->String('curriculo', length: 100) ->nullable();
+            $table->date('nascimento') ->nullable();
+            //algumas atualizações de colunas 
+            //...
+
             $table->enum('role',['admin', 'user'])->default('user');
             $table->rememberToken();
             $table->timestamps();
 
-            //referência a tabela profiles
-            $table->foreignId('profile_id')
-                ->constrained
-                ->cascadeOnUpdate()
-                ->cascadeOndelete();
+    
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

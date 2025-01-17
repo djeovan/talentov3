@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\File;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\RegisterUserController;
 use App\Http\controllers\Backend\Usercontroller;
 use App\Http\Middleware\admin;
 Route::get('/', function () {
@@ -30,5 +31,11 @@ Route::get('admin/dashboard',[AdminController::class, 'dashboard'])
 Route::get('user/dashboard',[Usercontroller::class, 'dashboard'])
 ->middleware(['auth', 'user'])
 ->name('user.dashboard');
+
+
+
+Route::get('/register', [RegisterUserController::class, 'showRegistrationForm'])->name('newUser');
+Route::post('/register', [RegisterUserController::class, 'register']);
+
 
 
