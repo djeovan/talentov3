@@ -18,10 +18,11 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
 
-            //informações técnicas sobre o usuário
+            //informações técnicas sobre o usuário FOTO
             $table->String('nome_imagem', length: 100) ->nullable();
             $table->String('path', length: 100) ->nullable();
             $table->date('data') ->nullable();
+            //informações técnicas sobre o usuário
             $table->String('formacao', length: 100) ->nullable();
             $table->String('nome_formacao', length: 100) ->nullable();
             $table->String('especializacoes', length: 100) ->nullable();
