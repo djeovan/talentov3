@@ -29,6 +29,13 @@ class User extends Authenticatable
         'formacao_academica',
         'curriculo',
         'nascimento',
+        
+        'sobreNome',
+        'cpf',
+        'telefone',
+        'residencia',
+        'registroGeral',
+        'comprovanteAtuação',
     ];
 
     /**

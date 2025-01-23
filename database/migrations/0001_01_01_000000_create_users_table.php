@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email')->unique(); //para averificação do email
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password'); //para a verificação do email
 
             //informações técnicas sobre o usuário FOTO
             $table->String('nome_imagem', length: 100) ->nullable();
@@ -31,7 +31,13 @@ return new class extends Migration
             $table->String('curriculo', length: 100) ->nullable();
             $table->date('nascimento') ->nullable();
             //algumas atualizações de colunas 
-            //...
+            $table->String('sobreNome', length: 100) ->nullable();
+            $table->String('cpf', length: 12) ->nullable();
+            $table->String('telefone', length: 12) ->nullable();
+            $table->String('residencia', length: 20) ->nullable();
+            $table->String('registroGeral', length: 8) ->nullable();
+            $table->String('comprovanteAtuacao', length: 100) ->nullable();
+            $table->String('cargo', length: 100) ->nullable();
 
             $table->enum('role',['admin', 'user'])->default('user');
             $table->rememberToken();

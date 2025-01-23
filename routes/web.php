@@ -2,9 +2,10 @@
 use Illuminate\Support\Facades\File;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\controllers\Backend\AdminController;
-use App\Http\Controllers\Backend\RegisterUserController;
-use App\Http\controllers\Backend\Usercontroller;
+use App\Http\controllers\backend\AdminController;
+use App\Http\Controllers\backend\RegisterUserController;
+use App\Http\controllers\backend\Usercontroller;
+use App\Http\Controllers\backend\UserViewController;
 use App\Http\Middleware\admin;
 Route::get('/', function () {
     return view('welcome');
@@ -33,9 +34,11 @@ Route::get('user/dashboard',[Usercontroller::class, 'dashboard'])
 ->name('user.dashboard');
 
 
-
+//rota para registar um usuario
 Route::get('/register', [RegisterUserController::class, 'showRegistrationForm'])->name('newUser');
 Route::post('/register', [RegisterUserController::class, 'register']);
 
 
+//rota para listar os usuarios
+Route::get('/listusers',[UserViewController::class, 'index'])->name('usuarios.index');
 

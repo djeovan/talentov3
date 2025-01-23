@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -32,6 +32,15 @@ class RegisterUserController extends Controller
              'formacao_academica' => 'required|string|max:100',
              'curriculo'          => 'required|string|max:100',
              //'nascimento'         => 'required|date_format:d/m/Y',  // Valida o formato dd/mm/yyyy
+
+            'sobreNome'          => 'required|string|max:100',
+            'cpf'                => 'required|string|max:12',
+            'telefone'           => 'required|string|max:12',
+            'residencia'         => 'required|string|max:20',
+            'registroGeral'      => 'required|string|max:8',
+            'comprovanteAtuacao' => 'required|string|max:100',
+            'cargo' => 'required|string|max:100',
+             
              
          ]);
  
@@ -47,7 +56,14 @@ class RegisterUserController extends Controller
              'cursos'             => $request->especializacoes,
              'formacao_academica' => $request->formacao_academica,
              'curriculo'          => $request->curriculo,
-             'nascimento' =>$request->nascimento,
+             'nascimento'         => $request->nascimento, //validação esta incompleta
+             'sobreNome'          => $request->sobreNome,
+             'cpf'                => $request->cpf,
+             'telefone'           => $request->telefone,
+             'residencia'         => $request->residencia,
+             'registroGeral'      => $request->registroGeral,
+             'comprovanteAtuacao' => $request->comprovanteAtuacao,
+             'cargo'              => $request->cargo,
          ]);
        
          // Redirecionar após o registro
